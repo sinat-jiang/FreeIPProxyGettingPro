@@ -5,10 +5,11 @@
 # Project : FreeIPProxyGettingPro
 
 from ProxiesSpider.spider import Spider
-from tools import *
+from lxml import etree
 import time
 import sys
 from wrappers import req_respose_none_wrapper
+from tqdm import tqdm
 
 
 class SpiderKuai(Spider):
@@ -87,25 +88,5 @@ class SpiderKuai(Spider):
 
 
 if __name__ == '__main__':
-
-    # proxy = get_free_proxy()
-    # print('使用代理：', proxy)
-
-    # proxy = {'ip': '180.184.91.187', 'port': '443'}
-    #
-    # if proxy is None:
-    #     proxies = None
-    # else:
-    #     proxies = {
-    #         'http': '{}:{}'.format(proxy['ip'], proxy['port']),
-    #         'https': '{}:{}'.format(proxy['ip'], proxy['port']),
-    #     }
-    #
-    # print('-' * 90)
-    # print(proxies)
-    #
-    # spider_kuai = SpiderKuai(proxies=proxies)
-    # spider_kuai.run()
-
     spider_kuai = SpiderKuai()
     spider_kuai.run()

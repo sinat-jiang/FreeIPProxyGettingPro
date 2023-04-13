@@ -25,14 +25,11 @@ class SpiderZdaye(Spider):
         # zdaye 封禁代理比较频繁，需要使用代理去访问资源
         super().__init__(url=url, headers=headers, verify=False)
 
-        # self.session = None
-
     def pre_parse(self):
         """
-        识别当天代理页面
+        代理资源页解析
         :return:
         """
-        # 资源整合页请求
         self.update_response()
 
         self.response.encoding = 'utf-8'
@@ -74,7 +71,7 @@ class SpiderZdaye(Spider):
         """
         获取所有 proxies
         """
-        # 1 先获取所有待采集的 proxy list 页
+        # 1 先获取所有代理详情页的 url
         self.pre_parse()
         print(self.parse_urls)
 

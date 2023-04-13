@@ -31,7 +31,6 @@ class SpiderSeo(Spider):
         """
         解析代理
         """
-        # if self.response is not None:
         content = self.response.text
         tree = etree.HTML(content)
         proxies_obj = tree.xpath('//table[@class="table"]/tbody/tr')
@@ -45,8 +44,6 @@ class SpiderSeo(Spider):
             }
             proxies.append(dic_)
         return proxies
-        # else:
-        #     return []
 
     def get_all_proxies(self):
         """

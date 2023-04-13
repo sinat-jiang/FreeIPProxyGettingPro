@@ -8,15 +8,10 @@ import os
 
 RETRY_LIMIT = 4     # 爬取失败时的重试次数
 
-# 每天验证的可用 ip 存储文件地址
+# 可用 ip 存储文件地址
 useful_ip_file_path = os.path.join('D:/D0/coding/workspaceforC_ide/PycharmCommunity2019/python_spider/FreeIPProxyGettingPro', 'proxies_spider_results')
-# 多进程爬取时的 proxy 资源
+# 可用 ip 存储文件名称
 useful_ip_file_name = 'useful_proxies_spiding.txt'
-# 所有资源爬取后汇总的 proxy 资源
-useful_ip_file_name_latest = 'useful_proxies_latest.txt'
 
-# 配置 proxy 爬虫
-proxy_spiders = [
-    # Spider66,
-    # Spider89,
-]
+# 所有资源爬取后汇总的 proxy 资源
+# useful_ip_file_name_latest = 'useful_proxies_latest.txt'

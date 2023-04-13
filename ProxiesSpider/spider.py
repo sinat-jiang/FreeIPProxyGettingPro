@@ -73,7 +73,7 @@ class Spider:
 
     def update_attrs(self, *args, **kwargs):
         """
-        update the spider object's self attrs
+        update the spider object's attrs
         :param args:
         :param kwargs:
         :return:
@@ -204,7 +204,7 @@ class Spider:
     def run(self):
         """
         General spider running logic：
-            init -> face page url request -> (resource page collect) -> crawl all proxies -> check proxies' usability -> save
+            init -> face page url request -> (resource page collect) -> crawl all proxies -> check proxies' useability -> save
         :return:
         """
         # 1 入口请求
