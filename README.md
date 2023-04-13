@@ -5,7 +5,7 @@ Collect online public free proxies, write crawlers, build a self-used IP proxy p
 ###
 
 ### Simply Use
-Download the code package to local, extract it, and run the 'main.py' in the main directory. 
+Download the code package to local, extract it, and run the `main.py` in the main directory. 
 Give yourself a cup of coffee, after running successed, it'll create a result file in `proxies_spider_results` directory.
 
 ### Problems
