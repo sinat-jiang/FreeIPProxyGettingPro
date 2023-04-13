@@ -9,7 +9,7 @@ Download the code package to local, extract it, and run the `main.py` in the mai
 Give yourself a cup of coffee, after running successed, it'll create a result file in `proxies_spider_results` directory.
 
 ### Problems
-- The stability of free agents is poor (even if verification is available during crawling);
+- The stability of free proxies is poor (even if verification is available during crawling);
 
 ### Appendix
 - Study projects and use them wisely!
