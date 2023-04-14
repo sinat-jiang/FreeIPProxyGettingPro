@@ -12,7 +12,7 @@ Give yourself a cup of coffee, after running successed, it'll create a result fi
 - The stability of free proxies is poor (even if verification is available during crawling);
 
 ### Appendix
-- Study projects and use them wisely!
+- Study project and use it wisely!
 - Occasionally improving.
 
 ---
