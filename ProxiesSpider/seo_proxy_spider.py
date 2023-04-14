@@ -1,10 +1,4 @@
 # _*_ coding : utf-8 _*_
-# @Time : 2023/3/13 16:32
-# @Author : jiang
-# @File : seo_proxy_spider
-# Project : FreeIPProxyGettingPro
-
-
 from tools import *
 from ProxiesSpider.spider import Spider
 from wrappers import req_respose_none_wrapper
@@ -64,4 +58,5 @@ class SpiderSeo(Spider):
 if __name__ == '__main__':
 
     spider_seo = SpiderSeo()
+    spider_seo.timeout = 0.01
     spider_seo.run()

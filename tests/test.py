@@ -11,7 +11,6 @@ import json
 import os
 import time
 import requests
-import random
 
 
 def filter_all_proxies_mp(all_proxies):
@@ -147,16 +146,18 @@ if __name__ == '__main__':
     #
     # print(count)
 
-    s = "hello, world"
-    # 默认字体输出:
-    print('\033[0m%s\033[0m' % s)
+    # s = "hello, world"
+    # # 默认字体输出:
+    # print('\033[0m%s\033[0m' % s)
+    #
+    # # 高亮显示:
+    # print('\033[1;31;40m%s\033[0m' % s)
+    # print('\033[1;32;40m%s\033[0m' % s)
+    # print('\033[1;33;40m%s\033[0m' % s)
+    # print('\033[1;34;40m%s\033[0m' % s)
+    # print('\033[1;35;40m%s\033[0m' % s)
+    # print('\033[1;36;40m%s\033[0m' % s)
+    #
+    # print('\033[1;31m{}\033[0m'.format(s))
 
-    # 高亮显示:
-    print('\033[1;31;40m%s\033[0m' % s)
-    print('\033[1;32;40m%s\033[0m' % s)
-    print('\033[1;33;40m%s\033[0m' % s)
-    print('\033[1;34;40m%s\033[0m' % s)
-    print('\033[1;35;40m%s\033[0m' % s)
-    print('\033[1;36;40m%s\033[0m' % s)
-
-    print('\033[1;31m{}\033[0m'.format(s))
+    from config import *

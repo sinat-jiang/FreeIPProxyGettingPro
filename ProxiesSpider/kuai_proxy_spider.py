@@ -1,9 +1,4 @@
 # _*_ coding : utf-8 _*_
-# @Time : 2023/3/13 14:19
-# @Author : jiang
-# @File : kuai_proxy_spider
-# Project : FreeIPProxyGettingPro
-
 from ProxiesSpider.spider import Spider
 from lxml import etree
 import time

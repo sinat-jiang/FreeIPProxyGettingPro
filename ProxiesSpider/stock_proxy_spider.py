@@ -1,8 +1,4 @@
 # _*_ coding : utf-8 _*_
-# @Time : 2023/4/5 0:12
-# @Author : jiang
-# @File : stock_proxy_spider
-# Project : FreeIPProxyGettingPro
 
 """
 前一天爬取的存量代理的验证（为保持结构一致性，也封装成 Spider 类形式）
@@ -13,7 +9,7 @@ from config import *
 import json
 from tools import get_latest_proxy_file
 from concurrent.futures import ProcessPoolExecutor, as_completed
-from tools import check_proxy_icanhazip, check_proxy_900cha
+from tools import check_proxy_900cha
 import time
 import sys
 
@@ -50,7 +46,6 @@ class SpiderStock:
         测试代理 ip 可用性
         多进程处理
         """
-        # print(f'IP 验证，主进程开始执行, pid:{os.getpid()}')
         self.all_proxies_filter = dict()
 
         # process pool

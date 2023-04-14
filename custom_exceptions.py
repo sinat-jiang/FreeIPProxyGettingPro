@@ -1,9 +1,4 @@
 # _*_ coding : utf-8 _*_
-# @Time : 2023/4/12 11:39
-# @Author : jiang
-# @File : custom_exceptions
-# Project : FreeIPProxyGettingPro
-
 """
 自定义异常类
 """
@@ -18,7 +13,6 @@ class Request500Exception(Exception):
         self.obj = obj if obj is not None else 'unknown'
 
     def __str__(self):
-        # print('{} The request response statu code is 500!'.format(self.__class__.__name__))
         if self.obj == 'unknow':
             return 'The request response statu code is 500!'
         else:
@@ -38,10 +32,10 @@ class TryWithSelfProxyLimitException(Exception):
 
 class ResponseTextNoneException(Exception):
     """
-
+    标识 self.response = None 的场景
     """
     def __init__(self):
         pass
 
     def __str__(self):
-        return 'The self.response is None!'
+        return 'Self.response is None!'

@@ -1,9 +1,4 @@
 # _*_ coding : utf-8 _*_
-# @Time : 2023/4/1 0:16
-# @Author : jiang
-# @File : kaixin_proxy_spider
-# Project : FreeIPProxyGettingPro
-
 from tqdm import tqdm
 from ProxiesSpider.spider import Spider
 import time
@@ -68,9 +63,7 @@ class SpiderKaixin(Spider):
             self.update_attrs(url=parse_url)
             self.update_response()
 
-            # 3 获取资源页所有的 proxy（这里的逻辑需要根据资源页是否只有当天数据，还是所有天的数据混合在一起，来确定自己的编写逻辑）
-            # 两种遍历逻辑：1）根据下一页遍历；2）获取总页数然后循环请求；
-            # 两种中断逻辑：1）无需中断；2）列表中包含非当天数据，需中断处理；
+            # 3 获取资源页所有的 proxy
             page_num = int(etree.HTML(self.response.text).xpath('//div[@id="listnav"]/ul/li/a/text()')[-1])
             for i in tqdm(range(1, page_num+1), file=sys.stdout, desc='[{}] crawling all pages...'.format(self.__class__.__name__)):
                 time.sleep(3)  # 间隔爬取

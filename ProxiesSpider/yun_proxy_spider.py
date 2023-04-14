@@ -1,9 +1,4 @@
 # _*_ coding : utf-8 _*_
-# @Time : 2023/3/16 9:21
-# @Author : jiang
-# @File : yun_proxy_spider
-# Project : FreeIPProxyGettingPro
-
 from tqdm import tqdm
 from lxml import etree
 from ProxiesSpider.spider import Spider
@@ -67,10 +62,8 @@ class SpiderYun(Spider):
             self.update_attrs(url=parse_url)
             self.update_response()
 
-            # 3 获取资源页所有的 proxy（这里的逻辑需要根据资源页是否只有当天数据，还是所有天的数据混合在一起，来确定自己的编写逻辑）
-            # yun 代理下一页按钮无限循环，所以这里采用另一种方式：首先获取所有页，然后循环
+            # 3 获取资源页所有的 proxy
             total_pages = int(etree.HTML(self.response.text).xpath('//div[@id="listnav"]/ul/strong/text()')[0].replace('/', ''))
-
             for i in tqdm(range(total_pages), file=sys.stdout, desc='[{}] crawling all pages...'.format(self.__class__.__name__)):
                 time.sleep(2)
                 if i == 0:
@@ -85,8 +78,5 @@ class SpiderYun(Spider):
 
 
 if __name__ == '__main__':
-
     spider_yun = SpiderYun()
     spider_yun.run()
-
-    # spider_yun.save_to_txt()

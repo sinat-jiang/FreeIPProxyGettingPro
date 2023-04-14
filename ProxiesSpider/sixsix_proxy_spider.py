@@ -1,9 +1,4 @@
 # _*_ coding : utf-8 _*_
-# @Time : 2023/3/11 23:53
-# @Author : jiang
-# @File : 66_proxy_spider
-# Project : FreeIPProxyGettingPro
-
 from ProxiesSpider.spider import Spider
 from lxml import etree
 from tqdm import tqdm
@@ -34,7 +29,7 @@ class Spider66(Spider):
         """
         解析每一页的代理
         """
-        self.response.encoding = 'gb2312'   # 注意该页面的中文编码
+        self.response.encoding = 'gb2312'   # 注意该页面的编码
         content = self.response.text
         tree = etree.HTML(content)
         proxies_obj = tree.xpath('//div[@class="layui-row layui-col-space15"]//table/tr')
@@ -85,23 +80,6 @@ class Spider66(Spider):
 
 
 if __name__ == '__main__':
-    # url
-    # url = 'http://www.66ip.cn/index.html'
-    # headers = {
-    #     'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36',
-    # }
-
-    # spider_66 = Spider66()
-    # content_66 = spider_66.response.text
-    # # print(content_66)
-    #
-    # all_proxies = spider_66.get_all_proxies()
-    # print('爬取代理数：', len(all_proxies))
-    #
-    # all_proxies_filter = spider_66.filter_all_proxies_mp()
-    # print('可用代理数：', len(all_proxies_filter))
-    # spider_66.save_to_txt(os.path.join(useful_ip_file_path, useful_ip_file_name), spider_66.all_proxies_filter)
-
     spider_66 = Spider66()
     spider_66.run()
 

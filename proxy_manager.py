@@ -1,8 +1,4 @@
 # _*_ coding : utf-8 _*_
-# @Time : 2023/4/4 17:53
-# @Author : jiang
-# @File : proxy_manager
-# Project : FreeIPProxyGettingPro
 
 """
 代理管理器

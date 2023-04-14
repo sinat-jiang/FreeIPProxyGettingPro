@@ -1,9 +1,4 @@
 # _*_ coding : utf-8 _*_
-# @Time : 2023/3/5 22:31
-# @Author : jiang
-# @File : 89_proxy
-# Project : FreeIPProxyGettingPro
-
 
 import sys
 from lxml import etree
@@ -48,7 +43,6 @@ class Spider89(Spider):
     def get_all_proxies(self):
         """
         获取所有 proxies
-        construct：无 pre_parse
         :return:
         """
         # 1 initial request
@@ -65,7 +59,6 @@ class Spider89(Spider):
             self.all_proxies += proxies
 
             next_page = 'https://www.89ip.cn/' + etree.HTML(self.response.text).xpath('//a[@class="layui-laypage-next"]/@href')[0]
-            # print(next_page)
             self.update_attrs(url=next_page)
             self.update_response()
 

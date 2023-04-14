@@ -1,13 +1,7 @@
 # _*_ coding : utf-8 _*_
-# @Time : 2023/3/14 16:49
-# @Author : jiang
-# @File : zdaye_proxy_spider
-# Project : FreeIPProxyGettingPro
-
 from lxml import etree
 from ProxiesSpider.spider import Spider
 import time
-import sys
 from wrappers import req_respose_none_wrapper
 
 
@@ -22,7 +16,6 @@ class SpiderZdaye(Spider):
             'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36',
         }
 
-        # zdaye 封禁代理比较频繁，需要使用代理去访问资源
         super().__init__(url=url, headers=headers, verify=False)
 
     def pre_parse(self):
@@ -95,17 +88,12 @@ class SpiderZdaye(Spider):
             else:
                 req_failed_urls.append(parse_url)
             self.response.encoding = 'utf-8'
-            # print(self.response.text)
             with open('zday.html', 'w', encoding='utf-8') as f:
                 f.write(self.response.text)
                 print('save the page screen shot')
             print('-' * 90)
 
-            # 3 获取资源页所有的 proxy（这里的逻辑需要根据资源页是否只有当天数据，还是所有天的数据混合在一起，来确定自己的编写逻辑）
-            # 两种遍历逻辑：1）根据下一页遍历；2）获取总页数然后循环请求；
-            # 两种中断逻辑：1）无需中断；2）列表中包含非当天数据，需中断处理；
-            # zdaye 资源页只有当天数据，所以无需在采集过程中判断
-            # 初始时指向首页
+            # 3 获取资源页所有的 proxy
             while True:
                 time.sleep(3)   # 间隔爬取
                 proxies = self.parse()
@@ -114,7 +102,6 @@ class SpiderZdaye(Spider):
 
                 self.all_proxies += proxies
 
-                # etree xpath 获取不到，会返回空，而不是报错
                 next_tag = etree.HTML(self.response.text).xpath('//a[@title="下一页"]/@href')
                 if len(next_tag) == 0:
                     break
@@ -139,29 +126,5 @@ class SpiderZdaye(Spider):
 
 
 if __name__ == '__main__':
-
-    # proxy = get_free_proxy()
-    # print('使用代理：', proxy)
-    #
-    # if proxy is None:
-    #     proxies = None
-    # else:
-    #     proxies = {
-    #         'http': '{}:{}'.format(proxy['ip'], proxy['port']),
-    #         'https': '{}:{}'.format(proxy['ip'], proxy['port']),
-    #     }
-
-    # proxies = None
-
-    # zdaye 每天最后的更新时间是 21 点
-
-    # session = requests.Session()
-    # session.trust_env = False
-    # response = session.get(url)
-    # print(response.status_code)
-
-    # spider_zdy = SpiderZdaye(proxies=proxies)
-    # spider_zdy.run()
-
     spider_zdy = SpiderZdaye()
     spider_zdy.run()
