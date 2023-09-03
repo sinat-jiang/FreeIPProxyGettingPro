@@ -11,7 +11,6 @@
 """
 
 from proxy_manager import ProxyManager
-from ProxiesSpider.stock_proxy_spider import SpiderStock
 from chain_of_spiders_cfg import *
 
 
